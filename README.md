@@ -1,4 +1,4 @@
-# SpringMVC Coroutines
+# SpringMVC Coroutines [![Build Status](https://travis-ci.org/daggerok/kotlin-coroutines-spring-mvc.svg?branch=master)](https://travis-ci.org/daggerok/kotlin-coroutines-spring-mvc)
 Using konrad-kaminski integration
 
 ```bash

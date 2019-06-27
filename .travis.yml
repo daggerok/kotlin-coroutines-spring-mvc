@@ -36,19 +36,9 @@ jobs:
   include:
     - stage: test
       jdk: openjdk8
-      name: Maven tests (openjdk8)
+      name: Maven tests
       script:
-        - cd $TRAVIS_BUILD_DIR && ./mvnw -U >/dev/null
-        - java -jar $TRAVIS_BUILD_DIR/target/*-SNAPSHOT.jar &
-        - wait_for 8080
-        - http :8080/
-        - sleep 3s
-        - stop_any 80 8080
-    - stage: test
-      jdk: openjdk11
-      name: Maven tests (openjdk11)
-      script:
-        - cd $TRAVIS_BUILD_DIR && ./mvnw -U >/dev/null
+        - cd $TRAVIS_BUILD_DIR && ./mvnw
         - java -jar $TRAVIS_BUILD_DIR/target/*-SNAPSHOT.jar &
         - wait_for 8080
         - http :8080/
@@ -56,12 +46,8 @@ jobs:
         - stop_any 80 8080
     - stage: test
       jdk: openjdk8
-      name: Maven updates (openjdk8)
-      script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates -U
-    - stage: test
-      jdk: openjdk11
-      name: Maven updates (openjdk11)
-      script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates -U
+      name: Maven updates
+      script: cd $TRAVIS_BUILD_DIR && ./mvnw versions:display-property-updates
 cache:
   directories:
     - ~/.m2
